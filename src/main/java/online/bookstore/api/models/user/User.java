@@ -8,8 +8,9 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import online.bookstore.api.records.user.DadosAtualizaCadastroUser;
 
-@Table(name="users")
+@Table(name="Usuarios")
 @Entity(name="User")
 @Getter
 @NoArgsConstructor
@@ -28,5 +29,17 @@ public class User {
         this.nome = dados.nome();
         this.email = dados.email();
         this.senha = dados.senha();
+    }
+
+    public void atualizaUser(DadosAtualizaCadastroUser dados) {
+        if (dados.nome() != null) {
+            this.nome = dados.nome();
+        }
+        if (dados.email() != null) {
+            this.email = dados.email();
+        }
+        if (dados.senha() != null) {
+            this.senha = dados.senha();
+        }
     }
 }
