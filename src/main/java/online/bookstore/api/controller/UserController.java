@@ -27,6 +27,12 @@ public class UserController {
         return userRepository.findAll();
     }
 
+    @GetMapping("/{id}")
+    public User getUserById(@PathVariable Long id) {
+        User user = userRepository.findById(id).orElse(null);
+        return user;
+    }
+
     @PutMapping("/{id}")
     @Transactional
     public void atualizarUsuario(@RequestBody @Valid DadosAtualizaCadastroUser dados, @PathVariable Long id) {
