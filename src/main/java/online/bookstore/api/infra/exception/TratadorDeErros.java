@@ -1,4 +1,4 @@
-package online.bookstore.api.infra;
+package online.bookstore.api.infra.exception;
 
 import org.hibernate.action.internal.EntityActionVetoException;
 import org.springframework.http.ResponseEntity;

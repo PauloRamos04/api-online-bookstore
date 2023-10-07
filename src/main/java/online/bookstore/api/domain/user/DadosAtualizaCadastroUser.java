@@ -6,5 +6,6 @@ public record DadosAtualizaCadastroUser(
         Long id,
         String nome,
         String email,
-        String senha) {
+        String senha,
+        String login) {
 }
