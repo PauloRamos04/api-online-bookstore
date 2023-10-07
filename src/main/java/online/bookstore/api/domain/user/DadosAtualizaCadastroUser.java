@@ -1,4 +1,4 @@
-package online.bookstore.api.records.user;
+package online.bookstore.api.domain.user;
 
 import jakarta.validation.constraints.NotNull;
 

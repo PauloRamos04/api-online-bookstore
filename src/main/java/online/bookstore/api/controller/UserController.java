@@ -2,10 +2,10 @@ package online.bookstore.api.controller;
 
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
-import online.bookstore.api.models.user.DadosCadastroUser;
-import online.bookstore.api.models.user.User;
-import online.bookstore.api.models.user.UserRepository;
-import online.bookstore.api.records.user.DadosAtualizaCadastroUser;
+import online.bookstore.api.domain.user.DadosCadastroUser;
+import online.bookstore.api.domain.user.User;
+import online.bookstore.api.domain.user.UserRepository;
+import online.bookstore.api.domain.user.DadosAtualizaCadastroUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

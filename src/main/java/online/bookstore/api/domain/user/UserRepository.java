@@ -1,4 +1,4 @@
-package online.bookstore.api.models.user;
+package online.bookstore.api.domain.user;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

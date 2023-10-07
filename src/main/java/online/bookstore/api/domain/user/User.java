@@ -1,4 +1,4 @@
-package online.bookstore.api.models.user;
+package online.bookstore.api.domain.user;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -8,9 +8,8 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import online.bookstore.api.records.user.DadosAtualizaCadastroUser;
 
-@Table(name="Usuarios")
+@Table(name="usuarios")
 @Entity(name="User")
 @Getter
 @NoArgsConstructor
