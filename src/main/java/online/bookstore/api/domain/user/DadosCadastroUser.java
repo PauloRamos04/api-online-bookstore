@@ -14,10 +14,7 @@ public record DadosCadastroUser(
         String email,
         @NotBlank
         @Pattern(regexp = "[A-Za-z0-9]{8,16}")
-        String senha,
-
-        @NotBlank
-        String login
+        String senha
 ){
 
 
