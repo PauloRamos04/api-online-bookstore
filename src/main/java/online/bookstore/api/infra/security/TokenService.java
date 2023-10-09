@@ -20,16 +20,16 @@ public class TokenService {
 
 
     private static final String ISSUER = "API Bookstore";
+
     public String gerarToken(User user) {
         try {
             var algoritmo = Algorithm.HMAC256(secret);
             return JWT.create()
                     .withIssuer(ISSUER)
                     .withSubject(user.getEmail())
-                    .withClaim("id", user.getId())
                     .withExpiresAt(dataExpiracao())
                     .sign(algoritmo);
-        } catch (JWTCreationException exception) {
+        } catch (JWTCreationException exception){
             throw new RuntimeException("erro ao gerar token jwt", exception);
         }
     }
@@ -42,9 +42,8 @@ public class TokenService {
                     .build()
                     .verify(tokenJWT)
                     .getSubject();
-
         } catch (JWTVerificationException exception) {
-            throw new RuntimeException("Token invalido ou expirado");
+            throw new RuntimeException("Token JWT inválido ou expirado!");
         }
     }
     private Instant dataExpiracao () {
