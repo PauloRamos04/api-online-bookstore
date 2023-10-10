@@ -1,6 +1,10 @@
 # Online.Bookstore
 
-**Online.Bookstore** é uma aplicação web desenvolvida em Spring Boot que permite aos usuários cadastrarem e gerenciarem livros de acordo com a editora e o autor.
+**Online.Bookstore** é uma aplicação web desenvolvida como parte de um projeto acadêmico da disciplina de Programação Web, no 5º semestre do curso de Análise e Desenvolvimento de Sistemas, sob a orientação do professor Jean. Os colaboradores deste projeto são o Paulo Ramos e o Breno Laperuta.
+
+## Contexto do Projeto
+
+Este projeto foi concebido como parte do currículo acadêmico da disciplina de Programação Web, com o objetivo de aplicar os conhecimentos adquiridos durante o curso. Ele representa uma livraria online que permite aos usuários cadastrar e gerenciar livros de acordo com a editora e o autor.
 
 ## Pré-requisitos
 
@@ -60,6 +64,8 @@ Este projeto está licenciado sob a Licença MIT - consulte o arquivo [LICENSE](
 
 ---
 
-Obrigado por escolher o Online.Bookstore! Esperamos que esta aplicação ajude os usuários a gerenciar suas bibliotecas de forma eficiente. Se você tiver alguma dúvida ou encontrar problemas, sinta-se à vontade para abrir uma issue neste repositório ou nos contate em [contato@onlinebookstore.com].
+Este projeto foi desenvolvido como parte do aprendizado acadêmico e representa um esforço conjunto entre os alunos e o professor Jean. Esperamos que esta aplicação ajude os usuários a gerenciar suas bibliotecas de forma eficiente e também sirva como um exemplo de aplicação web construída em Spring Boot.
+
+Se você tiver alguma dúvida ou encontrar problemas, sinta-se à vontade para abrir uma issue neste repositório ou nos contate em [contato@onlinebookstore.com].
 
 Aproveite a gestão de sua biblioteca de livros! 📚
