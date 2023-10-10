@@ -2,10 +2,10 @@ package online.bookstore.api.controller;
 
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
-import online.bookstore.api.domain.administradores.Admin;
-import online.bookstore.api.domain.administradores.AdminRepository;
-import online.bookstore.api.domain.administradores.DadosAtualizaCadastroAdmin;
-import online.bookstore.api.domain.administradores.DadosCadastroAdmin;
+import online.bookstore.api.domain.administrador.Admin;
+import online.bookstore.api.domain.administrador.AdminRepository;
+import online.bookstore.api.domain.administrador.DadosAtualizaCadastroAdmin;
+import online.bookstore.api.domain.administrador.DadosCadastroAdmin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

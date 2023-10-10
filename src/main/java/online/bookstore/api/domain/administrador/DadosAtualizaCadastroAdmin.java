@@ -1,4 +1,4 @@
-package online.bookstore.api.domain.administradores;
+package online.bookstore.api.domain.administrador;
 
 public record DadosAtualizaCadastroAdmin(
     Long id,

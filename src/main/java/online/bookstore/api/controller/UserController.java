@@ -36,13 +36,8 @@ public class UserController {
     @PutMapping("/{id}")
     @Transactional
     public void atualizarUsuario(@RequestBody @Valid DadosAtualizaCadastroUser dados, @PathVariable Long id) {
-        // Verifica se o usuário existe antes de tentar atualizá-lo
         User user = userRepository.findById(id).orElseThrow();
-
-        // Atualiza os dados do usuário
         user.atualizaUser(dados);
-
-        // Salva as alterações no banco de dados
         userRepository.save(user);
     }
 

@@ -1,4 +1,4 @@
-package online.bookstore.api.domain.administradores;
+package online.bookstore.api.domain.administrador;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

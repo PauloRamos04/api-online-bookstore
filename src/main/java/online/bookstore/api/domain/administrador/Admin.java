@@ -1,4 +1,4 @@
-package online.bookstore.api.domain.administradores;
+package online.bookstore.api.domain.administrador;
 
 import jakarta.persistence.*;
 import jakarta.validation.Valid;

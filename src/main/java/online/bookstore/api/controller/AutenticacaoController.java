@@ -1,7 +1,6 @@
 package online.bookstore.api.controller;
 
 import jakarta.validation.Valid;
-import online.bookstore.api.domain.administradores.Admin;
 import online.bookstore.api.domain.user.DadosAutenticacao;
 import online.bookstore.api.domain.user.User;
 import online.bookstore.api.infra.security.TokenService;
