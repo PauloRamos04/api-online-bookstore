@@ -43,11 +43,9 @@ CREATE TABLE Moderacao (
                            livro_id INT,
                            usuario_id INT,
                            data TIMESTAMP,
-                           status_anterior VARCHAR(20),
-                           CHECK (status_anterior IN ('Aguardando Aprovação', 'Aprovado', 'Rejeitado')),
+                           status VARCHAR(20),
+                           CHECK (status IN ('Aguardando Aprovação', 'Aprovado', 'Rejeitado')),
                            status_novo VARCHAR(20),
-                           CHECK (status_novo IN ('Aprovado', 'Rejeitado')),
-                           comentario TEXT,
                            FOREIGN KEY (livro_id) REFERENCES Livros(id),
                            FOREIGN KEY (usuario_id) REFERENCES Usuarios(id)
 );
