@@ -1,4 +1,4 @@
-package online.bookstore.api.service;
+package online.bookstore.api.domain.book;
 
 import online.bookstore.api.domain.author.AuthorRepository;
 import online.bookstore.api.domain.book.BookRepository;

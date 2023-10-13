@@ -29,7 +29,7 @@ VALUES ('Livro1', 'Descrição do Livro 1', 2023, 1, 1, 'Aguardando Aprovação'
        ('Livro3', 'Descrição do Livro 3', 2023, 3, 3, 'Rejeitado');
 
 -- Inserir dados fictícios na tabela Moderacao
-INSERT INTO Moderacao (livro_id, usuario_id, data, status_anterior, status_novo, comentario)
-VALUES (1, 1, '2023-10-10 12:00:00', 'Aguardando Aprovação', 'Aprovado', 'Comentário sobre a moderação'),
-       (2, 2, '2023-10-11 12:00:00', 'Aguardando Aprovação', 'Rejeitado', 'Comentário sobre a moderação'),
-       (3, 3, '2023-10-12 12:00:00', 'Aguardando Aprovação', 'Aprovado', 'Comentário sobre a moderação');
+INSERT INTO Moderacao (livro_id, usuario_id, data, status)
+VALUES (1, 1, '2023-10-10 12:00:00', 'Aguardando Aprovação'),
+       (2, 2, '2023-10-11 12:00:00', 'Aguardando Aprovação'),
+       (3, 3, '2023-10-12 12:00:00', 'Aguardando Aprovação');
