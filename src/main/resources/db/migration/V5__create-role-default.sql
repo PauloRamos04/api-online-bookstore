@@ -1,0 +1,2 @@
+ALTER TABLE usuarios
+    ALTER COLUMN role SET DEFAULT 'USER';

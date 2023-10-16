@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.Collection;
 import java.util.List;
@@ -30,10 +31,23 @@ public class User implements UserDetails {
     private String email;
     private String senha;
 
+    @Enumerated(EnumType.STRING)
+    private UserRole role;
+
+
+    @PrePersist
+    public void prePersist() {
+        if (!senha.startsWith("$2a$")) {
+            String encryptedPass = new BCryptPasswordEncoder().encode(senha);
+            senha = encryptedPass;
+        }
+    }
+
     public User(DadosCadastroUser dados) {
         this.nome = dados.nome();
         this.email = dados.email();
         this.senha = dados.senha();
+        this.role = dados.role();
     }
 
     public void atualizaUser(DadosAtualizaCadastroUser dados) {
