@@ -1,5 +1,6 @@
 package online.bookstore.api.controller;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.Valid;
 import online.bookstore.api.domain.book.Book;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/moderacao")
+@SecurityRequirement(name = "bearer-key")
 public class ModeratorController {
 
     @Autowired
