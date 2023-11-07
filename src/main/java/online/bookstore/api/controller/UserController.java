@@ -1,5 +1,6 @@
 package online.bookstore.api.controller;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import online.bookstore.api.domain.user.DadosCadastroUser;
@@ -13,15 +14,16 @@ import java.util.List;
 
 @RestController
 @RequestMapping("user")
+@SecurityRequirement(name = "bearer-key")
 public class UserController {
 
     @Autowired
     private UserRepository userRepository;
 
-//    @PostMapping
-//    public void cadastrar(@RequestBody @Valid DadosCadastroUser dados){
-//        userRepository.save(new User(dados));
-//    }
+    @PostMapping()
+     public void cadastrar(@RequestBody @Valid DadosCadastroUser dados){
+        userRepository.save(new User(dados));
+    }
     @GetMapping()
     public List<User> listarUser(){
         return userRepository.findAll();

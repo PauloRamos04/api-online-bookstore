@@ -33,6 +33,7 @@ public class SecurityConfigurations implements WebMvcConfigurer {
                 .requestMatchers(HttpMethod.GET, "/livros").permitAll()
                 .requestMatchers(HttpMethod.GET, "/autores").permitAll()
                 .requestMatchers(HttpMethod.GET, "/").permitAll()
+                .requestMatchers("/v3/api-docs/**", "/swagger-ui.html", "/swagger-ui/**").permitAll()
                 .anyRequest().authenticated()
                 .and().addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
                 .csrf().disable()

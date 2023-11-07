@@ -1,5 +1,7 @@
 package online.bookstore.api.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import online.bookstore.api.domain.administrador.Admin;
@@ -13,6 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("admin")
+@SecurityRequirement(name = "bearer-key")
 public class AdminController {
 
     @Autowired

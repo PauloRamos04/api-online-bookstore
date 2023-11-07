@@ -1,5 +1,6 @@
 package online.bookstore.api.controller;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import online.bookstore.api.domain.administrador.AdminRepository;
 import online.bookstore.api.domain.user.*;
@@ -16,6 +17,8 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/auth")
 @CrossOrigin
+@SecurityRequirement(name = "bearer-key")
+
 public class AutenticacaoController {
 
     @Autowired
