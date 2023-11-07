@@ -11,16 +11,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController
 @RequestMapping("/auth")
+@CrossOrigin
 @SecurityRequirement(name = "bearer-key")
+
 public class AutenticacaoController {
 
     @Autowired
@@ -32,15 +30,8 @@ public class AutenticacaoController {
     @Autowired
     private UserRepository userRepository;
 
-    @Autowired
-    private AdminRepository adminRepository;
-
-
-
-
-
     @PostMapping("/login")
-    public ResponseEntity efetuarLogin(@RequestBody @Valid DadosAutenticacao dados){
+    public ResponseEntity efetuarLogin(@RequestBody DadosAutenticacao dados){
         try {
             var authenticationToken = new UsernamePasswordAuthenticationToken(dados.email(), dados.senha());
             var authentication = this.manager.authenticate(authenticationToken);
@@ -52,15 +43,11 @@ public class AutenticacaoController {
         }
     }
 
-
     @PostMapping("/register")
-    public ResponseEntity register(@RequestBody @Valid DadosCadastroUser data) {
+    public ResponseEntity register(@RequestBody DadosCadastroUser data) {
         if (this.userRepository.findByEmail(data.email()) != null) {
             return ResponseEntity.badRequest().build();
         }
-
-//        String encryptedPass = new BCryptPasswordEncoder().encode(data.senha());
-//        UserRole userRole = data.role();
 
         User newUser = new User(data);
 
@@ -68,8 +55,4 @@ public class AutenticacaoController {
 
         return ResponseEntity.ok().build();
     }
-
-
-
-
 }

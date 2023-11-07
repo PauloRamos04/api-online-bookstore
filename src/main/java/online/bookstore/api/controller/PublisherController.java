@@ -28,4 +28,5 @@ public class PublisherController {
     public void cadastrar(@RequestBody @Valid DadosCadastroPublisher dados){
         publisherRepository.save(new Publisher(dados));
     }
+
 }

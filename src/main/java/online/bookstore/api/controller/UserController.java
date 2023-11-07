@@ -20,10 +20,16 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
+
+    @PostMapping()
+     public void cadastrar(@RequestBody @Valid DadosCadastroUser dados){
+        userRepository.save(new User(dados));
+
     @PostMapping
     public void cadastrarUser(@RequestBody @Valid DadosCadastroUser dados){
     userRepository.save(new User(dados));
     }
+       
     @GetMapping()
     public List<User> listarUser(){
         return userRepository.findAll();
@@ -47,37 +53,6 @@ public class UserController {
     public void excluirUser(@PathVariable Long id){
         userRepository.deleteById(id);
     }
-
-//    @DeleteMapping("/{id}")
-//    public ResponseEntity<String> excluirUser(@PathVariable Long id) {
-//        try {
-//            // Verifique se o usuário está vinculado à moderação
-//            if (userRepository.existsById(id)) {
-//                // Se o usuário existir, verifique se ele está vinculado à moderação
-//                boolean isUsuarioVinculadoAModeracao = moderacaoRepository.existsByUsuarioId(id);
-//
-//                if (isUsuarioVinculadoAModeracao) {
-//                    // Não permita a exclusão, pois o usuário está vinculado à moderação
-//                    return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-//                            .body("Este usuário está vinculado à moderação e não pode ser excluído.");
-//                } else {
-//                    // Se o usuário não estiver vinculado à moderação, exclua-o
-//                    userRepository.deleteById(id);
-//                    return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
-//                }
-//            } else {
-//                // O usuário não existe
-//                return ResponseEntity.status(HttpStatus.NOT_FOUND)
-//                        .body("Usuário não encontrado com o ID: " + id);
-//            }
-//        } catch (Exception e) {
-//            // Lide com exceções aqui e retorne uma resposta apropriada, por exemplo:
-//            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-//                    .body("Ocorreu um erro ao excluir o usuário.");
-//        }
-//    }
-
-
 
 
 }

@@ -47,7 +47,7 @@ public class User implements UserDetails {
         this.nome = dados.nome();
         this.email = dados.email();
         this.senha = dados.senha();
-        this.role = dados.role();
+        this.role = UserRole.USER;
     }
 
     public void atualizaUser(DadosAtualizaCadastroUser dados) {
