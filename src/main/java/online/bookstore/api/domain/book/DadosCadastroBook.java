@@ -18,5 +18,6 @@ public record DadosCadastroBook(
 
         @NotNull
         Long editoraId
+
 ) {
 }

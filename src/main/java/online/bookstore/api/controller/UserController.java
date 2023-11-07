@@ -20,11 +20,6 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
-
-    @PostMapping()
-     public void cadastrar(@RequestBody @Valid DadosCadastroUser dados){
-        userRepository.save(new User(dados));
-
     @PostMapping
     public void cadastrarUser(@RequestBody @Valid DadosCadastroUser dados){
     userRepository.save(new User(dados));
