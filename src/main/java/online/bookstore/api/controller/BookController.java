@@ -12,7 +12,9 @@ import online.bookstore.api.domain.publisher.Publisher;
 import online.bookstore.api.domain.publisher.PublisherRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -30,14 +32,27 @@ public class BookController {
     private PublisherRepository publisherRepository;
 
     @PostMapping()
-    public void cadastrar(@RequestBody @Valid DadosCadastroBook dados) {
+    public void cadastrar(@ModelAttribute DadosCadastroBook dados, @RequestParam("capa") MultipartFile capa) {
         Author author = authorRepository.findById(dados.autorId())
                 .orElseThrow(() -> new EntityNotFoundException("Autor não encontrado"));
         Publisher publisher = publisherRepository.findById(dados.editoraId())
                 .orElseThrow(() -> new EntityNotFoundException("Editora não encontrada"));
-        Book book = new Book(dados, author, publisher);
-        bookRepository.save(book);
+
+        if (capa != null && !capa.isEmpty()) {
+            try {
+                byte[] capaBytes = capa.getBytes();
+                Book book = new Book(dados, author, publisher, capaBytes);
+                bookRepository.save(book);
+            } catch (IOException e) {
+                // Lidar com a exceção, por exemplo, lançar uma exceção personalizada
+            }
+        } else {
+            // Lógica de tratamento se o campo "capa" estiver vazio ou nulo
+        }
     }
+
+
+
 
     @GetMapping()
     public List<Book> listarBook(){
