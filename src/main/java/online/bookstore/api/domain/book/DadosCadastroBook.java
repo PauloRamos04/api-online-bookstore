@@ -17,7 +17,12 @@ public record DadosCadastroBook(
         Long autorId,
 
         @NotNull
-        Long editoraId
+        Long editoraId,
+
+        @NotNull
+        Integer price,
+
+        String capa
 
 ) {
 }

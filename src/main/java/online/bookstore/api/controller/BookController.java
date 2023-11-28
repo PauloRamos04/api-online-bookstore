@@ -51,9 +51,6 @@ public class BookController {
         }
     }
 
-
-
-
     @GetMapping()
     public List<Book> listarBook(){
         return bookRepository.findAll();
