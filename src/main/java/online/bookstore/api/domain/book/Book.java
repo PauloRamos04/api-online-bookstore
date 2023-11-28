@@ -34,18 +34,16 @@ public class Book {
     private byte[] capa;
 
     private String status;
-
+    private Integer price;
+//    private Integer stock;
     public Book(DadosCadastroBook dados, Author autor, Publisher editora, byte[] capa) {
         this.titulo = dados.titulo();
         this.descricao = dados.descricao();
         this.anoPublicacao = dados.anoPublicacao();
+        this.price = dados.price();
         this.autor = autor;
         this.editora = editora;
         this.capa = capa;
     }
 
-
-
-
-    // Getters e setters (ou use Lombok para gerá-los automaticamente)
 }
