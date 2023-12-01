@@ -30,20 +30,16 @@ public class Book {
     @JoinColumn(name = "editora_id") // Nome da coluna que representa a editora
     private Publisher editora;
 
-    @Column(name = "capa", columnDefinition = "BLOB")
-    private byte[] capa;
-
     private String status;
     private Integer price;
-//    private Integer stock;
-    public Book(DadosCadastroBook dados, Author autor, Publisher editora, byte[] capa) {
+
+    public Book(DadosCadastroBook dados, Author autor, Publisher editora) {
         this.titulo = dados.titulo();
         this.descricao = dados.descricao();
         this.anoPublicacao = dados.anoPublicacao();
         this.price = dados.price();
         this.autor = autor;
         this.editora = editora;
-        this.capa = capa;
     }
 
 }

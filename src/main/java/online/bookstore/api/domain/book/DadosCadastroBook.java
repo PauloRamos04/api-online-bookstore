@@ -4,6 +4,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 public record DadosCadastroBook(
+
         @NotBlank
         String titulo,
 
@@ -20,9 +21,7 @@ public record DadosCadastroBook(
         Long editoraId,
 
         @NotNull
-        Integer price,
-
-        String capa
+        Integer price
 
 ) {
 }

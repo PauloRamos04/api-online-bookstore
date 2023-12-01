@@ -32,24 +32,23 @@ public class BookController {
     private PublisherRepository publisherRepository;
 
     @PostMapping()
-    public void cadastrar(@ModelAttribute DadosCadastroBook dados, @RequestParam("capa") MultipartFile capa) {
+    public void cadastrar(@RequestBody @Valid DadosCadastroBook dados) {
+        if (dados == null || dados.autorId() == null || dados.editoraId() == null) {
+            throw new IllegalArgumentException("AutorId or EditoraId cannot be null");
+        }
+
+
         Author author = authorRepository.findById(dados.autorId())
                 .orElseThrow(() -> new EntityNotFoundException("Autor não encontrado"));
+
         Publisher publisher = publisherRepository.findById(dados.editoraId())
                 .orElseThrow(() -> new EntityNotFoundException("Editora não encontrada"));
 
-        if (capa != null && !capa.isEmpty()) {
-            try {
-                byte[] capaBytes = capa.getBytes();
-                Book book = new Book(dados, author, publisher, capaBytes);
-                bookRepository.save(book);
-            } catch (IOException e) {
-                // Lidar com a exceção, por exemplo, lançar uma exceção personalizada
-            }
-        } else {
-            // Lógica de tratamento se o campo "capa" estiver vazio ou nulo
-        }
+        // Criar e salvar o novo livro
+        Book newBook = new Book(dados, author, publisher);
+        bookRepository.save(newBook);
     }
+
 
     @GetMapping()
     public List<Book> listarBook(){
